@@ -68,11 +68,13 @@ pdf("ColorPal.pdf")
 colorPal
 dev.off()
 
-pdf("ColorPal_wHexCodes.pdf")
+jpeg("ColorPal_wHexCodes.jpeg", width=440, height=220)
 qplot(x=1:nrow(jpegClustered$centers), y = 1, fill=factor(1:nrow(jpegClustered$centers)), geom="tile") +
   scale_fill_manual(values = rgb(Centers[order(Centers$R),])) +
   theme_void()+
-  theme(legend.position="none")+ geom_rect(aes(xmin=0, xmax=nrow(jpegClustered$centers)+1, ymin=.95, ymax = 1.05), fill = "white", alpha=.2) + geom_text(label=rgb(Centers[order(Centers$R),]))
+  theme(legend.position="none") +
+  geom_rect(aes(xmin=0, xmax=nrow(jpegClustered$centers)+1, ymin=.95, ymax = 1.05), fill = "white", alpha=.2) +
+  geom_text(label=rgb(Centers[order(Centers$R),]), size=3.25)
 dev.off()
 
 #show_col(rgb(k_means$centers))
