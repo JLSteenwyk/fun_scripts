@@ -14,5 +14,5 @@ R
 |- jpeg
 |- ggplot2
 ```
-Basic usage: Rscript JPEG2ColorPal.R file.jpg Number_of_colors_in_palette
+Basic usage: Rscript JPEG2ColorPal.R file.jpg Number_of_colors_in_palette<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
