@@ -36,6 +36,8 @@ library(ggplot2)
 ## read in JPEG
 jpegArr <- readJPEG(jpegFile)
 
+
+### This block of code is from http://www.milanor.net/blog/build-color-palette-from-image-with-paletter/
 ## extract rgb values from JPEG array
 dimensions <- dim(jpegArr)
 jpeg_rgb <- data.frame(
@@ -45,9 +47,10 @@ jpeg_rgb <- data.frame(
   G = as.vector(jpegArr[,,2]),
   B = as.vector(jpegArr[,,3])
 )
-
 ## Cluster RGB values
 jpegClustered <- kmeans(jpeg_rgb[,c("R","G","B")], centers = numColors, iter.max = 50)
+###
+
 Centers<-as.data.frame(jpegClustered$centers)
 
 ## create color palette
